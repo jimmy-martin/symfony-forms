@@ -43,6 +43,7 @@ class MovieReviewType extends AbstractType
             ])
 
             ->add('message', TextareaType::class, [
+                'label' => 'Message',
                 'constraints' => [
                     new Length([
                         'min' => 100,
@@ -68,6 +69,7 @@ class MovieReviewType extends AbstractType
             ])
 
             ->add('age', IntegerType::class, [
+                'label' => 'Âge',
                 'attr' => [
                     'min' => 7,
                     'max' => 77,
