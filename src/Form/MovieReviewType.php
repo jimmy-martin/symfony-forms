@@ -121,11 +121,11 @@ class MovieReviewType extends AbstractType
                     ]),
                 ],
                 'choices' => [
-                    'Excellent' => 1,
-                    'Très bon' => 2,
+                    'Excellent' => 5,
+                    'Très bon' => 4,
                     'Bon' => 3,
-                    'Peut mieux faire' => 4,
-                    'A éviter' => 5,
+                    'Peut mieux faire' => 2,
+                    'A éviter' => 1,
                 ],
             ])
 
