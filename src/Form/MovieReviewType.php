@@ -35,33 +35,37 @@ class MovieReviewType extends AbstractType
                     ])
                 ],
             ])
+
             ->add('firstname', null, [
                 'label' => 'Prénom',
                 'required' => false,
             ])
+
             ->add('message', TextareaType::class, [
                 'constraints' => [
-                    new NotBlank([
-                        'message' => $missingMessage,
-                    ]),
                     new Length([
                         'min' => 100,
                         'minMessage' => $minMessage,
                     ]),
-                ],
-            ])
-            ->add('email', EmailType::class, [
-                'label' => 'E-mail',
-                'constraints' => [
                     new NotBlank([
                         'message' => $missingMessage,
                     ]),
+                ],
+            ])
+
+            ->add('email', EmailType::class, [
+                'label' => 'E-mail',
+                'constraints' => [
                     new Email([
                         'message' => 'L`email {{ value }} n\'est pas valide !',
                         'mode' => 'html5',
                     ]),
+                    new NotBlank([
+                        'message' => $missingMessage,
+                    ]),
                 ],
             ])
+
             ->add('age', IntegerType::class, [
                 'attr' => [
                     'min' => 7,
@@ -73,20 +77,22 @@ class MovieReviewType extends AbstractType
                     ]),
                 ],
             ])
+
             ->add('password', PasswordType::class, [
                 'label' => 'Mot de passe',
                 'constraints' => [
-                    new NotBlank([
-                        'message' => $missingMessage,
-                    ]),
                     new Length([
                         'min' => 8,
                         'max' => 16,
                         'minMessage' => $minMessage,
                         'maxMessage' => $maxMessage,
                     ]),
+                    new NotBlank([
+                        'message' => $missingMessage,
+                    ]),
                 ],
             ])
+
             ->add('url', UrlType::class, [
                 'label' => 'Site web',
                 'constraints' => [
@@ -98,6 +104,7 @@ class MovieReviewType extends AbstractType
                     ]),
                 ],
             ])
+
             ->add('review', ChoiceType::class, [
                 'label' => 'Avis',
                 'constraints' => [
@@ -113,6 +120,7 @@ class MovieReviewType extends AbstractType
                     'A éviter' => 5,
                 ],
             ])
+
             ->add('feeling', ChoiceType::class, [
                 'label' => 'Ce film vous a fait',
                 'constraints' => [
@@ -130,6 +138,7 @@ class MovieReviewType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
             ])
+
             ->add('watchedAt', DateType::class, [
                 'label' => 'Vous avez vu le film le',
                 'constraints' => [
@@ -139,6 +148,7 @@ class MovieReviewType extends AbstractType
                 ],
                 'widget' => 'single_text',
             ])
+
             ->add('file', FileType::class, [
                 'label' => 'Photo du cinéma ou de la salle',
                 'constraints' => [
