@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Url;
 
-class OpinionType extends AbstractType
+class MovieReviewType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -87,7 +87,7 @@ class OpinionType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('website', UrlType::class, [
+            ->add('url', UrlType::class, [
                 'label' => 'Site web',
                 'constraints' => [
                     new NotBlank([
@@ -98,7 +98,7 @@ class OpinionType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('opinion', ChoiceType::class, [
+            ->add('review', ChoiceType::class, [
                 'label' => 'Avis',
                 'constraints' => [
                     new NotBlank([
@@ -113,7 +113,7 @@ class OpinionType extends AbstractType
                     'A éviter' => 5,
                 ],
             ])
-            ->add('emotion', ChoiceType::class, [
+            ->add('feeling', ChoiceType::class, [
                 'label' => 'Ce film vous a fait',
                 'constraints' => [
                     new NotBlank([
@@ -130,7 +130,7 @@ class OpinionType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
             ])
-            ->add('date', DateType::class, [
+            ->add('watchedAt', DateType::class, [
                 'label' => 'Vous avez vu le film le',
                 'constraints' => [
                     new NotBlank([
@@ -139,7 +139,7 @@ class OpinionType extends AbstractType
                 ],
                 'widget' => 'single_text',
             ])
-            ->add('photo', FileType::class, [
+            ->add('file', FileType::class, [
                 'label' => 'Photo du cinéma ou de la salle',
                 'constraints' => [
                     new NotBlank([

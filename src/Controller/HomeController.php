@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Form\OpinionType;
+use App\Form\MovieReviewType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +15,7 @@ class HomeController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        $form = $this->createForm(OpinionType::class);
+        $form = $this->createForm(MovieReviewType::class);
 
         $form->handleRequest($request);
 
