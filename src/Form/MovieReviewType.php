@@ -127,6 +127,9 @@ class MovieReviewType extends AbstractType
                     'Peut mieux faire' => 2,
                     'A éviter' => 1,
                 ],
+                // On peut rajouter un 'required' => false afin de  
+                // rajouter une ligne vide au cas où je ne sélectionne rien
+                'required' => false
             ])
 
             ->add('feeling', ChoiceType::class, [
@@ -137,11 +140,11 @@ class MovieReviewType extends AbstractType
                     ]),
                 ],
                 'choices' => [
-                    'Rire' => 1,
-                    'Pleurer' => 2,
-                    'Réfléchir' => 3,
-                    'Dormir' => 4,
-                    'Rêver' => 5,
+                    'Rire' => 'laugh',
+                    'Pleurer' => 'cry',
+                    'Réfléchir' => 'think',
+                    'Dormir' => 'sleep',
+                    'Rêver' => 'dream',
                 ],
                 'expanded' => true,
                 'multiple' => true,
