@@ -16,6 +16,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Range;
 use Symfony\Component\Validator\Constraints\Url;
 
 class MovieReviewType extends AbstractType
@@ -75,6 +76,11 @@ class MovieReviewType extends AbstractType
                     new NotBlank([
                         'message' => $missingMessage,
                     ]),
+                    new Range([
+                        'min' => 7,
+                        'max' => 77,
+                        'notInRangeMessage' => 'La valeur doit être entre {{ min }} et {{ max }}.'
+                    ])
                 ],
             ])
 
