@@ -19,6 +19,8 @@ class HomeController extends AbstractController
 
         $form->handleRequest($request);
 
+        // dd($_POST, $request, $form);
+
         if ($form->isSubmitted() && $form->isValid()) {
             dump($form->getData());
         }

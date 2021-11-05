@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -167,6 +168,13 @@ class MovieReviewType extends AbstractType
                         'message' => $missingMessage,
                     ]),
                 ],
+            ])
+
+            // Un CheckboxType est un FormType qui permet de ne générer qu'une seul checkbox
+            // Quand on l'utilise, on souhaite savoir si elle est cochée ou non
+            ->add('robotCheck', CheckboxType::class, [
+                'label' => 'Je ne suis pas un robot',
+                'required' => false,
             ])
         ;
     }
